@@ -29,12 +29,10 @@ public class SerializerTest {
         serializers.add(new JackJSONSerializer());
         serializers.add(new ProtoBufferSerializer());
         serializers.add(new XMLSerializer());
-        SimpleObject simpleObject = new SimpleObject("小明");
-        simpleObject.setValue("xxxx");
-        simpleObject.setAge(18);
-        simpleObject.setMail("jiujie@xx.com");
+        SimpleObject simpleObject = buildSimpleObject();
         for (Serializer serializer : serializers) {
             byte[] serialize = serializer.serialize(simpleObject);
+            System.out.println(new String(serialize));
             SimpleObject deserialize = serializer.deserialize(serialize, SimpleObject.class);
             Assert.assertEquals(simpleObject.getName(), deserialize.getName());
             Assert.assertEquals(simpleObject.getValue(), deserialize.getValue());
@@ -42,6 +40,25 @@ public class SerializerTest {
             Assert.assertEquals(simpleObject.getAge(), deserialize.getAge());
         }
 
+    }
+
+    public SimpleObject buildSimpleObject() {
+        SimpleObject simpleObject = new SimpleObject();
+        simpleObject.setName("simple object");
+        simpleObject.setValue("i'm a simple object");
+        simpleObject.setAge(22);
+        simpleObject.setMail("xiaoming@qq.com");
+        ArrayList<String> parents = new ArrayList<>();
+        parents.add("mother");
+        parents.add("father");
+        simpleObject.setParents(parents);
+        simpleObject.setSchool("Star School");
+        simpleObject.setTeacher("James Lee");
+        simpleObject.setScore(32.8);
+        simpleObject.setHeight(180);
+        simpleObject.setWeight(66);
+        simpleObject.setDesc("It's my pleasure to introduce my self..well");
+        return simpleObject;
     }
 
 //    @Test

@@ -6,6 +6,7 @@ import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 /**
  * @auther jiujie
@@ -16,18 +17,29 @@ public class XMLSerializer implements Serializer {
 
     @Override
     public <T> byte[] serialize(T object) {
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        XMLEncoder xe = new XMLEncoder(os, "UTF-8", true, 0);     // 仅用于Java SE 7
-        xe.writeObject(object);    // 序列化成XML字符串
-        xe.close();
+
+        ByteArrayOutputStream os = null;
+        XMLEncoder xe = null;
+        try {
+            os = new ByteArrayOutputStream();
+            xe = new XMLEncoder(os, "UTF-8", true, 0);
+            xe.writeObject(object);    // 序列化成XML字符串
+        } finally {
+            if (xe != null) {
+                xe.close();
+            }
+        }
         return os.toByteArray();
     }
 
     @Override
     public <T> T deserialize(byte[] bytes, Class<T> clazz) {
-        XMLDecoder xd = new XMLDecoder(new ByteArrayInputStream(bytes));
-        Object obj = xd.readObject();       // 从XML序列中解码为Java对象
-        xd.close();
-        return (T)obj;
+        try (ByteArrayInputStream in = new ByteArrayInputStream(bytes); XMLDecoder xd = new XMLDecoder(in)) {
+            Object obj = xd.readObject();       // 从XML序列中解码为Java对象
+            return (T) obj;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
