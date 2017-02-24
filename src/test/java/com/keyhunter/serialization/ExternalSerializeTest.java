@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Created by jiujie on 2016/12/2.
+ * Created by yingren on 2016/12/2.
  */
 public class ExternalSerializeTest {
 

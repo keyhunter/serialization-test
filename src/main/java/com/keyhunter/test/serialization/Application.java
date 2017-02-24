@@ -1,6 +1,7 @@
 package com.keyhunter.test.serialization;
 
-import com.keyhunter.test.serialization.bean.BigObject;
+import com.keyhunter.test.serialization.bean.ComplexObject;
+import com.keyhunter.test.serialization.bean.ComplexObjectGenerator;
 import com.keyhunter.test.serialization.bean.SimpleObject;
 import com.keyhunter.test.serialization.jdk.JdkSerializer;
 import com.keyhunter.test.serialization.json.FastJSONSerializer;
@@ -18,7 +19,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * Application entry point
  *
- * @auther jiujie
+ * @auther yingren
  * Created on 2017/2/23.
  */
 public class Application {
@@ -30,22 +31,32 @@ public class Application {
 
     private StatisticsCollecter statisticsCollecter;
 
-
+    /**
+     * main method to the run a application
+     * @param args
+     */
     public static void main(String[] args) {
+
+        //simple
         Config config = new Config();
-        config.setLoopSize(12);
+        config.setLoopSize(10000);
         config.setNameSuffix("Simple");
         config.setTargetObject(buildSimpleObject());
         Application application = new Application(config);
         application.init();
-        application.run();
-//        config.setLoopSize(10000);
-        config.setNameSuffix("Complex");
-        config.setTargetObject(new BigObject());
 //        application.run();
+
+        //complex
+        config.setLoopSize(500);
+        config.setNameSuffix("Complex");
+        final ComplexObject generate = new ComplexObjectGenerator().generate();
+        config.setTargetObject(generate);
+        application = new Application(config);
+        application.init();
+        application.run();
     }
 
-    public static SimpleObject buildSimpleObject() {
+    private static SimpleObject buildSimpleObject() {
         SimpleObject simpleObject = new SimpleObject();
         simpleObject.setName("simple object");
         simpleObject.setValue("i'm a simple object");

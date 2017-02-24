@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by jiujie on 2016/12/2.
+ * Created by yingren on 2016/12/2.
  */
 public class SimpleObject implements Serializable {
 

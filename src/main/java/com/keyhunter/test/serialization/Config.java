@@ -1,11 +1,11 @@
 package com.keyhunter.test.serialization;
 
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * The config for serialize test.
  *
- * @auther jiujie
+ * @auther yingren
  * Created on 2017/2/23.
  */
 public class Config {
@@ -49,4 +49,6 @@ public class Config {
     public void setNameSuffix(String nameSuffix) {
         this.nameSuffix = nameSuffix;
     }
+
+
 }

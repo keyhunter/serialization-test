@@ -6,7 +6,7 @@ import java.io.*;
 
 /**
  * JDK自带的序列化
- * Created by jiujie on 2016/12/2.
+ * Created by yingren on 2016/12/2.
  */
 public class JdkSerializer implements Serializer {
 

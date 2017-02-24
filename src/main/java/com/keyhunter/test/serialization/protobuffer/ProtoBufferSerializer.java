@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * ProtoBuffer序列化
  * 用的是ProtoStuff工具包
- * @auther jiujie
+ * @auther yingren
  * Created on 2016/12/21.
  */
 public class ProtoBufferSerializer implements Serializer {

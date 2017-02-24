@@ -3,7 +3,7 @@ package com.keyhunter.serialization;
 import java.io.Serializable;
 
 /**
- * @auther jiujie
+ * @auther yingren
  * Created on 2016/12/26.
  */
 public class TransientObject implements Serializable {

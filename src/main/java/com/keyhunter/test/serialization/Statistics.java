@@ -3,7 +3,7 @@ package com.keyhunter.test.serialization;
 import java.text.DecimalFormat;
 
 /**
- * @auther jiujie
+ * @auther yingren
  * Created on 2017/2/23.
  */
 public class Statistics {

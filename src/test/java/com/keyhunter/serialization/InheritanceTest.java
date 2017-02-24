@@ -9,7 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * @auther jiujie
+ * @auther yingren
  * Created on 2016/12/26.
  */
 public class InheritanceTest {

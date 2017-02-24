@@ -1,7 +1,7 @@
 package com.keyhunter.serialization.inheritance;
 
 /**
- * @auther jiujie
+ * @auther yingren
  * Created on 2016/12/26.
  */
 public class SuperClass {

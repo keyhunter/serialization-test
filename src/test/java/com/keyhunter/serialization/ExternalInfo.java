@@ -8,7 +8,7 @@ import java.io.ObjectOutput;
 /**
  * java扩展接口的序列化
  *
- * @auther jiujie
+ * @auther yingren
  * Created on 2016/12/24.
  */
 public class ExternalInfo implements Externalizable {

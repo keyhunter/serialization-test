@@ -1,7 +1,7 @@
 package com.keyhunter.test.serialization;
 
 /**
- * Created by jiujie on 2016/12/2.
+ * Created by yingren on 2016/12/2.
  */
 public interface Serializer {
 

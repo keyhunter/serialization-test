@@ -1,5 +1,7 @@
 package com.keyhunter.serialization;
 
+import com.keyhunter.test.serialization.bean.ComplexObject;
+import com.keyhunter.test.serialization.bean.ComplexObjectGenerator;
 import com.keyhunter.test.serialization.jdk.JdkSerializer;
 import com.keyhunter.test.serialization.Serializer;
 import com.keyhunter.test.serialization.bean.SimpleObject;
@@ -16,7 +18,7 @@ import java.util.List;
 
 /**
  * Test all serializers.
- * Created by jiujie on 2016/12/2.
+ * Created by yingren on 2016/12/2.
  */
 public class SerializerTest {
 
@@ -40,6 +42,12 @@ public class SerializerTest {
             Assert.assertEquals(simpleObject.getAge(), deserialize.getAge());
         }
 
+        ComplexObject complexObject = new ComplexObjectGenerator().generate();
+        for (Serializer serializer : serializers) {
+            byte[] serialize = serializer.serialize(complexObject);
+            ComplexObject deserialize = serializer.deserialize(serialize, ComplexObject.class);
+            Assert.assertEquals(complexObject.getJustAName0(), deserialize.getJustAName0());
+        }
     }
 
     public SimpleObject buildSimpleObject() {
