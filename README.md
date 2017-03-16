@@ -5,7 +5,7 @@ Java serialization test. FastJSON Jackson XML JDK ProtoBuffer Kyro几种序列�
 ![image](https://cloud.githubusercontent.com/assets/7654175/23894440/169d21e8-08dd-11e7-964a-aeffd5bb7211.png)
 
 对象是由行为和状态，序列化代表我们可以将一个对象的状态转化成数据流，可以通过网络传输，也可以存储成一个文件或者数据库中，同样可以把数据流反序列化成对象。
-
+参见：http://blog.csdn.net/connect_me/article/details/62439743
 ## 文本序列化
 - 优点：文本型序列化的优点在于跨平台跨语言，简单易读易调试，扩展性强
 - 缺点：占空间，不过可以压缩，会有一小部分性能损耗
